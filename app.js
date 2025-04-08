@@ -7,6 +7,7 @@ input.addEventListener("keypress", function (event) {
     }
 });
 addTask.addEventListener("click", function(){
+    if (input.value.trim() === "") return;
     let item = document.createElement("li");
     item.innerText = input.value;
     ul.appendChild(item);
