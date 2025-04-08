@@ -11,10 +11,6 @@ if(tasksArray.length != 0){
         let item = document.createElement("li");
         item.innerText = element;
 
-        let editbtn = document.createElement("button");
-        editbtn.classList.add("edit");
-        editbtn.innerText = "EditTask";
-        item.appendChild(editbtn);
 
         
         let dltbtn = document.createElement("button");
@@ -33,11 +29,6 @@ addTask.addEventListener("click", function(){
     localStorage.setItem("tasks", JSON.stringify(tasksArray));
 
     input.value = "";
-
-    let editbtn = document.createElement("button")
-    editbtn.classList.add("edit")
-    editbtn.innerText = "EditTask"
-    item.appendChild(editbtn);
 
     let dltbtn = document.createElement("button");
     dltbtn.classList.add("delete");
@@ -59,47 +50,12 @@ ul.addEventListener("click", function(event){
         localStorage.setItem("tasks", JSON.stringify(tasksArray));
 
         console.log("Deleted");
-    } else if (target.classList.contains("edit")) {
-        let listItem = event.target.parentElement;
-        let currentText = listItem.firstChild.textContent;
-
-        
-        listItem.innerHTML = "";
-
-        
-        let textarea = document.createElement("textarea");
-        textarea.value = currentText;
-        listItem.appendChild(textarea);
-        textarea.focus();
-
-        
-        textarea.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-                e.preventDefault(); 
-                let updatedText = textarea.value;
-
-                
-                listItem.innerHTML = updatedText + " ";
-
-                
-                let editbtn = document.createElement("button");
-                editbtn.classList.add("edit");
-                editbtn.innerText = "Edit";
-                listItem.appendChild(editbtn);
-
-                
-                let dltbtn = document.createElement("button");
-                dltbtn.classList.add("delete");
-                dltbtn.innerText = "Delete";
-                listItem.appendChild(dltbtn);
-
-                localStorage.setItem("tasks", JSON.stringify(tasksArray));
-            }
-        });
+    } 
+    
         localStorage.setItem("tasks", JSON.stringify(taskArray));
 
     }
-});
+);
 
 
 // let dltbtns = document.querySelectorAll(".delete");
