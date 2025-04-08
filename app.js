@@ -5,17 +5,18 @@ let ul = document.querySelector("ul");
 addTask.addEventListener("click", function(){
     let item = document.createElement("li");
     item.innerText = input.value;
-    ul.appendChild(item);
-    input.value = "";
 
     let dltbtn = document.createElement("button");
     dltbtn.classList.add("delete");
     dltbtn.innerText = "Delete";
     item.appendChild(dltbtn);
+    ul.appendChild(item);   
+    input.value = "";
+
 });
 
 ul.addEventListener("click", function(event){
-    if(event.target.nodeName == "BUTTON"){
+    if(event.target.nodeName === "BUTTON"){
         let listItem = event.target.parentElement;
         listItem.remove();
         console.log("Deleted");
