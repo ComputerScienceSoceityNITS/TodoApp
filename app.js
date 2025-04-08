@@ -1,8 +1,13 @@
 let input = document.querySelector("input");
 let addTask = document.querySelector("#addTask");
 let ul = document.querySelector("ul");
-
+input.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        addTask.click();
+    }
+});
 addTask.addEventListener("click", function(){
+    if (input.value.trim() === "") return;
     let item = document.createElement("li");
     item.innerText = input.value;
     ul.appendChild(item);
