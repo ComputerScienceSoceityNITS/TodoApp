@@ -34,6 +34,7 @@ addTask.addEventListener("click", function () {
     localStorage.setItem("tasks", JSON.stringify(tasksArray));
     input.value = "";
 
+
     let editbtn = document.createElement("button");
     editbtn.classList.add("edit");
     editbtn.innerText = "Edit";
@@ -43,8 +44,10 @@ addTask.addEventListener("click", function () {
     dltbtn.classList.add("delete");
     dltbtn.innerText = "Completed";
     item.appendChild(dltbtn);
-});
+    ul.appendChild(item);   
+    input.value = "";
 
+});
 
 ul.addEventListener("click", function (event) {
     if (event.target.nodeName === "BUTTON") {
